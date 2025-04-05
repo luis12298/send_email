@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programador de Eventos</title>
+
+</head>
+
+<body>
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script>
+        (function () {
+            // Reemplaza 'YOUR_PUBLIC_KEY' con tu clave pública de EmailJS
+            emailjs.init('UuVfzV_myyTSHdmEw');
+            sendEmail();
+        })();
+
+        // 3. Función para enviar un correo electrónico
+        function sendEmail() {
+            // Datos del correo electrónico
+            var templateParams = {
+                to_name: 'Destinatario',
+                from_name: 'Tu Nombre',
+                to_email: 'luisguevarapineda@gmail.com, gerardo.gp1229@gmail.com',
+                message: 'Este es el contenido del mensaje',
+                subject: 'Asunto del correo'
+            };
+            // Enviar el correo electrónico
+            // Reemplaza 'YOUR_SERVICE_ID' y 'YOUR_TEMPLATE_ID' con tus IDs de EmailJS
+            emailjs.send('service_lo2hjrh', 'template_7yfhqk5', templateParams)
+                .then(function (response) {
+                    console.log('¡Correo enviado con éxito!', response.status, response.text);
+                    alert('¡Correo enviado con éxito!');
+                }, function (error) {
+                    console.log('Error al enviar el correo:', error);
+                    alert('Error al enviar el correo: ' + JSON.stringify(error));
+                });
+        }
+
+    </script>
+</body>
+
+</html>
