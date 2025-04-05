@@ -17,19 +17,24 @@
         (function () {
             // Reemplaza 'YOUR_PUBLIC_KEY' con tu clave pública de EmailJS
             emailjs.init('UuVfzV_myyTSHdmEw');
-            sendEmail();
+            sendEmail('Gerardo', 'gerardo.gp1229@gmail.com', 1000);
+            sendEmail('Luis', 'luisguevarapineda@gmail.com', 2000);
         })();
 
         // 3. Función para enviar un correo electrónico
-        function sendEmail() {
+        function sendEmail(cliente, correo, monto) {
             // Datos del correo electrónico
             var templateParams = {
-                to_name: 'Destinatario',
-                from_name: 'Tu Nombre',
-                to_email: 'luisguevarapineda@gmail.com, gerardo.gp1229@gmail.com',
-                message: 'Este es el contenido del mensaje',
-                subject: 'Asunto del correo'
+                to_name: 'Gerardo',
+                from_name: 'Luis',
+                to_email: correo,
+                subject: 'Factura pendiente',
+                message: `Hola ${cliente},
+                    Espero que se encuentre bien.
+                    Le escribo para recordarle que tiene una factura pendiente de pago de Lps.${monto}.`
             };
+
+
             // Enviar el correo electrónico
             // Reemplaza 'YOUR_SERVICE_ID' y 'YOUR_TEMPLATE_ID' con tus IDs de EmailJS
             emailjs.send('service_lo2hjrh', 'template_7yfhqk5', templateParams)
